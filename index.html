@@ -38,15 +38,42 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <style>
+            @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-30px) translateX(20px); }
+            }
+            @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(40px) translateX(-40px); }
+            }
+            @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            }
+            @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 16px 16px; }
+            }
+            @keyframes bgMove {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(1deg); }
+            100% { transform: scale(1) rotate(0deg); }
+            }
+            
+            .animate-gradient { animation: gradient 10s ease infinite; background-size: 200% 200%; }
+            .animate-bgMove { animation: bgMove 20s linear infinite; }
+        </style>
     </head>
 
     <body class="bg-gray-50 text-gray-800 font-sans">
         <!-- MARK: Navbar -->
-        <nav class="bg-gray-50 shadow fixed w-full top-0 z-50">
+        <nav id="navbar" class="fixed w-full top-0 z-50 bg-transparent transition-colors duration-500 text-white">
             <div class="container mx-auto flex items-center justify-between py-3 sm:px-20 px-3">
                 <div class="flex items-center space-x-2">
                     <img src="./assets/logo_pranala.png" alt="Logo" class="w-8 h-8">
-                    <h1 class="text-xl text-brand font-bold">Pranala</h1>
+                    <h1 id="navbar_title" class="text-xl text-white font-bold transition-colors">Pranala</h1>
                 </div>
 
                 <!-- Menu -->
@@ -64,107 +91,106 @@
             <!-- Mobile overlays -->
             <div class="xl:hidden absolute inset-0 bg-black/60"></div>
             <div class="xl:hidden absolute inset-0 bg-brand/20"></div>
-
-            <div class="pointer-events-none absolute inset-0 hidden xl:block">
-                <div class="absolute inset-0 bg-gradient-to-br from-black/95 via-brand/30 to-brand_light/70 opacity-90"></div>
-                <div class="absolute -top-96 -left-96 h-[60rem] w-[60rem] rounded-full bg-brand_light/30 blur-[200px] opacity-70"></div>
-                <div class="absolute -bottom-64 -right-64 h-96 w-96 rounded-full bg-white/10 blur-[150px] opacity-50"></div>
-                <div class="absolute inset-0 m-auto h-32 w-32 rounded-full bg-white/5 blur-3xl"></div>
-                <div class="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.4)_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            
+            <!-- MARK: Background -->
+            <div class="pointer-events-none absolute inset-0 hidden xl:block animate-bgMove">
+                <div class="absolute inset-0 bg-gradient-to-br from-black to-brand animate-gradient"></div>
             </div>
-
+            
+            <!-- Content -->
             <div class="relative container mx-auto sm:px-20 px-3 w-full">
                 <div class="grid xl:grid-cols-2 gap-10 items-center">
-                <!-- Left -->
-                <div data-aos="fade-up" class="relative z-10">
-                    <!-- badge -->
-                    <div class="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 text-[10px] sm:text-xs font-semibold tracking-widest uppercase">
-                    <span class="h-1 w-1 rounded-full bg-white"></span> Maritime Technology
-                    </div>
-
-                    <!-- heading -->
-                    <h1 class="mt-4 sm:text-5xl text-3xl font-extrabold leading-tight">
-                    <span class="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-                        Driving Innovation in Maritime Technology
-                    </span>
-                    </h1>
-
-                    <!-- subcopy with accent bar -->
-                    <div class="mt-5 flex items-start gap-4">
-                        <span class="hidden sm:block h-10 w-1 rounded bg-white/70"></span>
-                        <p class="text-sm sm:text-base text-white/90 max-w-[56ch]">
-                            PT Pranala Digital Transmaritim delivers cutting-edge maritime solutions to modernize shipping,
-                            enhance safety, and optimize operations worldwide.
-                        </p>
-                    </div>
-
-                    <!-- highlights -->
-                    <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
-                    <div class="flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-2 backdrop-blur-md">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
-                        Safety-first
-                    </div>
-                    <div class="flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-2 backdrop-blur-md">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
-                        Compliance-ready
-                    </div>
-                    <div class="flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-2 backdrop-blur-md">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
-                        Optimized ops
-                    </div>
-                    </div>
-
-                    <!-- CTA -->
-                    <div class="mt-8 flex flex-wrap items-center gap-3">
-                    <a href="#about"
-                        class="inline-flex items-center gap-2 rounded-lg bg-white text-brand font-semibold text-sm px-5 py-3 shadow-sm hover:bg-brand_light hover:text-white transition">
-                        Learn More
-                        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 14.707a1 1 0 0 1 0-1.414L9.586 11H3a1 1 0 1 1 0-2h6.586L7.293 6.707A1 1 0 0 1 8.707 5.293l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0Z"/></svg>
-                    </a>
-                    <a href="#contact"
-                        class="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 backdrop-blur-md text-white font-semibold text-sm px-5 py-3 hover:bg-white/20 transition">
-                        Contact Us
-                    </a>
-                    </div>
-                </div>
-
-                <!-- Right (Mosaic) -->
-                <div data-aos="fade-left" class="hidden xl:block">
-                    <div class="relative w-full h-[520px] [perspective:1200px]">
-                    <!-- glow -->
-                    <div class="absolute -bottom-10 -right-10 h-56 w-56 rounded-full bg-white/10 blur-2xl"></div>
-
-                    <div class="relative grid grid-cols-2 gap-3 h-full [transform-style:preserve-3d]">
-                        <!-- Col 1 -->
-                        <div class="grid grid-rows-[2fr_1fr] gap-3">
-                        <div class="group relative overflow-hidden rounded-tl-[100px] rounded-br-[100px] rounded-tr-xl rounded-bl-xl ring-1 ring-white/20 shadow-2xl h-full [transform:rotateY(-8deg)_rotateX(2deg)] hover:[transform:rotateY(-5deg)_rotateX(0deg)] transition-transform duration-500">
-                            <div class="absolute inset-0 bg-[url('./assets/hero/h2.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-                            <div class="absolute inset-0 bg-brand/20"></div>
+                    
+                    <!-- Left -->
+                    <div data-aos="fade-up" class="relative z-10">
+                        <!-- badge -->
+                        <div class="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 text-[10px] sm:text-xs font-semibold tracking-widest uppercase">
+                        <span class="h-1 w-1 rounded-full bg-white"></span> Maritime Technology
                         </div>
-                        <div class="pl-16 pb-10">
-                            <div class="group relative overflow-hidden rounded-[100px] ring-1 ring-white/20 shadow-xl h-full [transform:rotateY(-8deg)] hover:[transform:rotateY(-5deg)] transition-transform duration-500">
-                            <div class="absolute inset-0 bg-[url('./assets/hero/h1.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-                            <div class="absolute inset-0 bg-brand/20"></div>
+
+                        <!-- heading -->
+                        <h1 class="mt-4 sm:text-5xl text-3xl font-extrabold leading-tight">
+                        <span class="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                            Driving Innovation in Maritime Technology
+                        </span>
+                        </h1>
+
+                        <!-- subcopy with accent bar -->
+                        <div class="mt-5 flex items-start gap-4">
+                            <span class="hidden sm:block h-10 w-1 rounded bg-white/70"></span>
+                            <p class="text-sm sm:text-base text-white/90 max-w-[56ch]">
+                                PT Pranala Digital Transmaritim delivers cutting-edge maritime solutions to modernize shipping,
+                                enhance safety, and optimize operations worldwide.
+                            </p>
+                        </div>
+
+                        <!-- highlights -->
+                        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-2 backdrop-blur-md">
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
+                            Safety-first
+                        </div>
+                        <div class="flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-2 backdrop-blur-md">
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
+                            Compliance-ready
+                        </div>
+                        <div class="flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-2 backdrop-blur-md">
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
+                            Optimized ops
+                        </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="mt-8 flex flex-wrap items-center gap-3">
+                        <a href="#about"
+                            class="inline-flex items-center gap-2 rounded-lg bg-white text-brand font-semibold text-sm px-5 py-3 shadow-sm hover:bg-brand_light hover:text-white transition">
+                            Learn More
+                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 14.707a1 1 0 0 1 0-1.414L9.586 11H3a1 1 0 1 1 0-2h6.586L7.293 6.707A1 1 0 0 1 8.707 5.293l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0Z"/></svg>
+                        </a>
+                        <a href="#contact"
+                            class="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 backdrop-blur-md text-white font-semibold text-sm px-5 py-3 hover:bg-white/20 transition">
+                            Contact Us
+                        </a>
+                        </div>
+                    </div>
+
+                    <!-- Right (Mosaic) -->
+                    <div data-aos="fade-left" class="hidden xl:block">
+                        <div class="relative w-full h-[520px] [perspective:1200px]">
+                        <!-- glow -->
+                        <div class="absolute -bottom-10 -right-10 h-56 w-56 rounded-full bg-white/10 blur-2xl"></div>
+
+                        <div class="relative grid grid-cols-2 gap-3 h-full [transform-style:preserve-3d]">
+                            <!-- Col 1 -->
+                            <div class="grid grid-rows-[2fr_1fr] gap-3">
+                            <div class="group relative overflow-hidden rounded-tl-[100px] rounded-br-[100px] rounded-tr-xl rounded-bl-xl ring-1 ring-white/20 shadow-2xl h-full [transform:rotateY(-8deg)_rotateX(2deg)] hover:[transform:rotateY(-5deg)_rotateX(0deg)] transition-transform duration-500">
+                                <div class="absolute inset-0 bg-[url('./assets/hero/h2.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+                                <div class="absolute inset-0 bg-brand/20"></div>
+                            </div>
+                            <div class="pl-16 pb-10">
+                                <div class="group relative overflow-hidden rounded-[100px] ring-1 ring-white/20 shadow-xl h-full [transform:rotateY(-8deg)] hover:[transform:rotateY(-5deg)] transition-transform duration-500">
+                                <div class="absolute inset-0 bg-[url('./assets/hero/h1.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+                                <div class="absolute inset-0 bg-brand/20"></div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- Col 2 -->
+                            <div class="grid grid-rows-[1fr_2fr] gap-3">
+                            <div class="pr-16 pt-10">
+                                <div class="group relative overflow-hidden rounded-[100px] ring-1 ring-white/20 shadow-xl h-full [transform:rotateY(8deg)] hover:[transform:rotateY(5deg)] transition-transform duration-500">
+                                <div class="absolute inset-0 bg-[url('./assets/hero/h3.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+                                <div class="absolute inset-0 bg-brand/20"></div>
+                                </div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-tl-[100px] rounded-br-[100px] rounded-tr-xl rounded-bl-xl ring-1 ring-white/20 shadow-2xl h-full [transform:rotateY(8deg)_rotateX(2deg)] hover:[transform:rotateY(5deg)_rotateX(0deg)] transition-transform duration-500">
+                                <div class="absolute inset-0 bg-[url('./assets/hero/h4.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+                                <div class="absolute inset-0 bg-brand/20"></div>
+                            </div>
                             </div>
                         </div>
                         </div>
-
-                        <!-- Col 2 -->
-                        <div class="grid grid-rows-[1fr_2fr] gap-3">
-                        <div class="pr-16 pt-10">
-                            <div class="group relative overflow-hidden rounded-[100px] ring-1 ring-white/20 shadow-xl h-full [transform:rotateY(8deg)] hover:[transform:rotateY(5deg)] transition-transform duration-500">
-                            <div class="absolute inset-0 bg-[url('./assets/hero/h3.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-                            <div class="absolute inset-0 bg-brand/20"></div>
-                            </div>
-                        </div>
-                        <div class="group relative overflow-hidden rounded-tl-[100px] rounded-br-[100px] rounded-tr-xl rounded-bl-xl ring-1 ring-white/20 shadow-2xl h-full [transform:rotateY(8deg)_rotateX(2deg)] hover:[transform:rotateY(5deg)_rotateX(0deg)] transition-transform duration-500">
-                            <div class="absolute inset-0 bg-[url('./assets/hero/h4.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-                            <div class="absolute inset-0 bg-brand/20"></div>
-                        </div>
-                        </div>
                     </div>
-                    </div>
-                </div>
                 </div>
             </div>
         </section>
@@ -816,6 +842,33 @@
             </div>
         </div>
         </footer>
+
+        <script>
+            window.addEventListener("scroll", function () {
+                const navbar = document.getElementById("navbar");
+                if (window.scrollY > 10) {
+                    navbar.classList.remove("bg-transparent");
+                    navbar.classList.remove("text-white");
+                    navbar.classList.add("bg-gray-50", "shadow");
+                } else {
+                    navbar.classList.add("bg-transparent");
+                    navbar.classList.add("text-white");
+                    navbar.classList.remove("bg-gray-50", "shadow");
+                }
+
+                const navbar_title = document.getElementById("navbar_title");
+                if (window.scrollY > 10) {
+                    navbar_title.classList.add("text-brand");
+                    navbar_title.classList.remove("text-white");
+                } else {
+                    navbar_title.classList.add("text-white");
+                    navbar_title.classList.remove("text-brand");
+                }
+            });
+
+            
+        </script>
+
         
         <!-- MARK: Auto year -->
         <script>
