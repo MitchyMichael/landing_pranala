@@ -541,7 +541,7 @@
         </section>
 
 
-        <!-- Contact us (enhanced) -->
+        <!-- MARK: Contact us (enhanced) -->
         <section id="contact" class="relative py-20 overflow-hidden bg-gray-50">
         <!-- soft background blobs -->
         <div class="pointer-events-none absolute inset-0 -z-10 opacity-40">
@@ -639,7 +639,7 @@
                     <span class="h-px flex-1 bg-gray-200"></span>
                 </div>
 
-                <!-- quick form -->
+                <!-- MARK: quick form -->
                 <form id="contact-form" class="grid gap-4"
                         action="https://formspree.io/f/your-id" method="POST">
                     <!-- TIP: ganti action dengan endpoint form kamu (Formspree/Netlify/backend sendiri) -->
@@ -684,7 +684,7 @@
                     </div>
                 </form>
 
-                <!-- meta info -->
+                <!-- MARK: meta info -->
                 <div class="mt-6 grid sm:grid-cols-3 gap-4 text-xs text-gray-600">
                     <div class="flex items-center gap-2">
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
@@ -708,7 +708,7 @@
         </section>
 
 
-        <!-- Footer (enhanced) -->
+        <!-- MARK: Footer (enhanced) -->
         <footer class="relative text-white bg-[linear-gradient(135deg,#8d225d_0%,#8d225d_70%,#b84b8d_70%,#b84b8d_100%)]" data-aos="fade-up">
         <!-- subtle glow layers -->
         <div class="absolute inset-0 -z-10 opacity-20 bg-[radial-gradient(60%_60%_at_30%_20%,white_0,transparent_60%)]"></div>
@@ -816,13 +816,14 @@
             </div>
         </div>
         </footer>
-
+        
+        <!-- MARK: Auto year -->
         <script>
-        // auto year
-        (function(){ var y=document.getElementById('pl-year'); if(y) y.textContent=new Date().getFullYear(); })();
+            // auto year
+            (function(){ var y=document.getElementById('pl-year'); if(y) y.textContent=new Date().getFullYear(); })();
         </script>
 
-
+        <!-- MARK: Animate on scroll -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
