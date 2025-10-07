@@ -23,13 +23,8 @@
             }
         </script>
         
+        <!-- Animate on scroll -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-        <style>
-            html {
-                scroll-behavior: smooth;
-            }
-        </style>
 
         <!-- Logo -->
         <link rel="icon" type="image/png" href="./assets/logo_pranala.png">
@@ -39,36 +34,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        <style>
-            @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-30px) translateX(20px); }
-            }
-
-            @keyframes float-slow {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(40px) translateX(-40px); }
-            }
-
-            @keyframes gradient {
-            0%, 100% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            }
-
-            @keyframes gridMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 16px 16px; }
-            }
-
-            @keyframes bgMove {
-            0% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.05) rotate(1deg); }
-            100% { transform: scale(1) rotate(0deg); }
-            }
-            
-            .animate-gradient { animation: gradient 6s ease infinite; background-size: 300% 300%; }
-            .animate-bgMove { animation: bgMove 20s linear infinite; }
-        </style>
+        <!-- External CSS -->
+        <link rel="stylesheet" href="./index.css">
     </head>
 
     <body class="bg-gray-50 text-gray-800 font-sans">
@@ -845,43 +812,13 @@
             </div>
         </footer>
 
-        <script>
-            window.addEventListener("scroll", function () {
-                const navbar = document.getElementById("navbar");
-                if (window.scrollY > 10) {
-                    navbar.classList.remove("bg-transparent");
-                    navbar.classList.remove("text-white");
-                    navbar.classList.add("bg-gray-50", "shadow");
-                } else {
-                    navbar.classList.add("bg-transparent");
-                    navbar.classList.add("text-white");
-                    navbar.classList.remove("bg-gray-50", "shadow");
-                }
-
-                const navbar_title = document.getElementById("navbar_title");
-                if (window.scrollY > 10) {
-                    navbar_title.classList.add("text-brand");
-                    navbar_title.classList.remove("text-white");
-                } else {
-                    navbar_title.classList.add("text-white");
-                    navbar_title.classList.remove("text-brand");
-                }
-            });
-
-            
-        </script>
-
-        
-        <!-- MARK: Auto year -->
-        <script>
-            // auto year
-            (function(){ var y=document.getElementById('pl-year'); if(y) y.textContent=new Date().getFullYear(); })();
-        </script>
-
         <!-- MARK: Animate on scroll -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
         </script>
+
+        <!-- External js -->
+        <script src="./index.js" defer></script>
     </body>
 </html>
